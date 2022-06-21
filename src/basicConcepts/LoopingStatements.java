@@ -117,8 +117,19 @@ public class LoopingStatements
 		}
 	}
 	
-	
-	
+	//Apply color to steps in five floors each floor having 20 steps , apply different color in each floor
+	@Test
+	public void applyColorToBuilding()
+	{
+		for(int i=1;i<=5;i++) //Outer loop
+		{
+			System.out.println("*********Apply color in the Floor :" + i);
+			for(int j=1;j<=20;j++) //Inner loop
+			{
+				System.out.println("Apply color to Step :" + j);
+			}
+		}
+	}
 	
 	
 	
