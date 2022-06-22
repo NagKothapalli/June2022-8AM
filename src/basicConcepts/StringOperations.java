@@ -60,10 +60,51 @@ public class StringOperations
 		}
 	}
 	
-	//split , concatenation 
+	//split , concatenation , charAt
 	
+	String d = " Selenium Automation With Java";
+	@Test
+	public void stringCharacterAtOperation()
+	{		
+		char c0 = d.trim().charAt(0);
+		System.out.println("Character at 0 index :" + c0);
+		for(int i=0;i<d.trim().length();i++)
+		{
+			char ci = d.trim().charAt(i);
+			System.out.println("Char at i th place :" + ci);
+			if(ci == 'a')
+			{
+				System.out.println(" Char a is present in the main string");
+				break;
+			}
+		}		
+	}
+	@Test
+	public void stringCharacterCount()
+	{
+		int count = 0;
+		for(int i=0;i<d.length();i++)
+		{
+			char ci = d.charAt(i);
+			System.out.println("Char at "+ i +" th place :" + ci);
+			if(ci=='a' || ci=='A')
+			{
+				count++;
+			}
+		}
+		System.out.println("Char a count :"+ count);
+	}
 	
-	
+	//string + string = string ,  string+int |  int+string = string  ,  int + int = int
+	@Test
+	public void stringConcatenation()
+	{
+		System.out.println("Selenium" + "Java");
+		System.out.println("Selenium" + 22);
+		System.out.println(44 + "Selenium" + "Java");
+		System.out.println(22 + 44 + "Selenium" + 55 + "Java");
+		System.out.println(a.concat(d));
+	}
 	
 	
 	
