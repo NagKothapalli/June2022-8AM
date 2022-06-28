@@ -106,6 +106,29 @@ public class StringOperations
 		System.out.println(a.concat(d));
 	}
 	
+	String f = "  Selenium-With-Python  "; //C# , Python , 
+	@Test
+	public void splitOperation()
+	{
+		String[] myarr = f.trim().split("-");
+		System.out.println("My Technology :"+ myarr[2]);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
