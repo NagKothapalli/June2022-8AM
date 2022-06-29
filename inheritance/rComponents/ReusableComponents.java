@@ -1,4 +1,4 @@
-package inheritance;
+package rComponents;
 
 import org.junit.Test;
 
@@ -7,7 +7,7 @@ public class ReusableComponents
 	//*******************ReUsable Component *****************************
 	protected void launchApplication()
 	{
-		System.out.println("RC : Launch Application from ReusableComponents");
+		System.out.println("RC : Launch Application");
 		//Launch process selenium code
 		//open browser
 		//call url
@@ -15,11 +15,11 @@ public class ReusableComponents
 		//title validation
 		//check url
 	}	
-	void loginToApplication()
+	protected void loginToApplication()
 	{
 		System.out.println("RC : Login To Application");
 	}
-	void logoutFromApplication()
+	protected void logoutFromApplication()
 	{
 		System.out.println("RC : Logout From Application");
 	}
@@ -35,7 +35,7 @@ public class ReusableComponents
 	{
 		System.out.println("RC : Send Mail");
 	}
-	void open()
+	protected void open()
 	{
 		System.out.println("RC : Open Mail");
 	}

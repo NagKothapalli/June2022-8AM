@@ -1,13 +1,11 @@
-package inheritance;
+package tCases;
 
 import org.junit.Test;
+
+import rComponents.ReusableComponents;
 //              child                 parent
 public class TestCases extends ReusableComponents
 {
-	/*
-	 * protected void launchApplication() //overriding {
-	 * System.out.println("RC : Launch Application from TestCases"); }
-	 */
 	//TestCase : TestSteps 
 	@Test  // Junit will treat it as a test method
 	public  void composeAndSendAnEmail()
