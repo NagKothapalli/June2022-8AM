@@ -1,9 +1,12 @@
-package inheritance;
+package inheritanceByObject;
 
 import org.junit.Test;
 //              child                 parent
-public class TestCases extends ReusableComponents
+public class TestCases //extends ReusableComponents
 {
+	//Modifier ClassName       objName  = new Constructor();
+	//public ReusableComponents   rcObj    = new ReusableComponents();
+	public ReusableComponents   rcObj    = new ReusableComponents("ie");
 	/*
 	 * protected void launchApplication() //overriding {
 	 * System.out.println("RC : Launch Application from TestCases"); }
@@ -14,48 +17,48 @@ public class TestCases extends ReusableComponents
 	{
 		//Step 1.1 :launch ,  Step 1.2 : login , step 1.3 : compose  step 1.4 : send step 1.5 : logout step 1.6 : close
 		System.out.println("Test Case : ComposeAndSendAnEmail");
-		launchApplication();
-		loginToApplication();
-		compose();
-		send();
-		logoutFromApplication();
-		closeApplication();
+		rcObj.launchApplication();
+		rcObj.loginToApplication();
+		rcObj.compose();
+		rcObj.send();
+		rcObj.logoutFromApplication();
+		rcObj.closeApplication();
 	}
 	@Test
 	public  void replyToAnEmail()
 	{
 		//launch , login , open , reply , logout , close
 		System.out.println("Test Case : ReplyToAnEmail");
-		launchApplication();
-		loginToApplication();
-		open();
-		reply();
-		logoutFromApplication();
-		closeApplication();
+		rcObj.launchApplication();
+		rcObj.loginToApplication();
+		rcObj.open();
+		rcObj.reply();
+		rcObj.logoutFromApplication();
+		rcObj.closeApplication();
 	}
 	@Test
 	public  void forwardAnEmail()
 	{
 		//launch , login , open , reply , logout ,close
 		System.out.println("Test Case : ForwardAnEmail");
-		launchApplication();
-		loginToApplication();
-		open();
-		forward();
-		logoutFromApplication();
-		closeApplication();
+		rcObj.launchApplication();
+		rcObj.loginToApplication();
+		rcObj.open();
+		rcObj.forward();
+		rcObj.logoutFromApplication();
+		rcObj.closeApplication();
 	}
 	@Test
 	public  void deleteAnEmail()
 	{
 		//launch , login , open , delete , logout , close
 		System.out.println("Test Case : DeleteAnEmail");
-		launchApplication();
-		loginToApplication();
-		open();
-		delete();
-		logoutFromApplication();
-		closeApplication();
+		rcObj.launchApplication();
+		rcObj.loginToApplication();
+		rcObj.open();
+		rcObj.delete();
+		rcObj.logoutFromApplication();
+		rcObj.closeApplication();
 	}
 
 }

@@ -1,4 +1,4 @@
-package inheritance;
+package simpleInheritance;
 
 import org.junit.Test;
 
