@@ -1,5 +1,7 @@
 package seleniumPractice;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,11 +32,15 @@ public class GmailAutomation
 		String actualTitle = driver.getTitle();
 		System.out.println("Actual Title :" + actualTitle);
 		Assert.assertEquals(expectedTitle, actualTitle); //Validation or Assertion
-		WebElement emailObj = driver.findElement(By.name("identifier"));
+		//WebElement emailObj = driver.findElement(By.name("identifier")); //identifierId
+		WebElement emailObj = driver.findElement(By.id("identifierId"));
 		emailObj.click();
 		emailObj.sendKeys("dsfdsgfgfghgfhgg");
 		emailObj.clear();
 		emailObj.sendKeys("nag022");
+		List<WebElement> elements = driver.findElements(By.className("VfPpkd-vQzf8d"));
+		WebElement element = elements.get(1);
+		element.click();
 	}
 
 }
