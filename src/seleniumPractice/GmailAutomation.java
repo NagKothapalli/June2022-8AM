@@ -1,5 +1,6 @@
 package seleniumPractice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -31,6 +32,7 @@ public class GmailAutomation
 	
 	//org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#abcdefgh"}
 	
+	//org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
 	@Test
 	public void launchApplication() //Test1
 	{
@@ -107,23 +109,41 @@ public class GmailAutomation
 		}
 	}
 	
+	
 	@Test
 	public void userLearnMore()
 	{
 		launchApplication();
 		System.out.println("User ForGot his Email");
 		//driver.findElement(By.tagName("button")).click(); //Forgot email? Create account
+		/*
+		 * List<WebElement> elements = driver.findElements(By.tagName("a")); for(int
+		 * i=0;i<elements.size();i++) { String txt = elements.get(i).getText();
+		 * System.out.println("Objects searched :" + txt); if(txt.equals("Learn more"))
+		 * { elements.get(i).click(); break; } }
+		 */
+		//driver.findElement(By.linkText("Learn more")).click();
+		driver.findElement(By.partialLinkText("Learn")).click();
+	}
+	@Test
+	public void findAllLinks()
+	{
+		ArrayList<String>  myurls = new ArrayList<String>();
+		launchApplication();
 		List<WebElement> elements = driver.findElements(By.tagName("a"));
 		for(int i=0;i<elements.size();i++)
 		{
-			String txt = elements.get(i).getText();
-			System.out.println("Objects searched :" + txt);
-			if(txt.equals("Learn more"))
-			{
-				elements.get(i).click();
-				break;
-			}
+			String url = elements.get(i).getAttribute("href");
+			System.out.println("URL of link :" + url);
+			myurls.add(url);			
 		}
+		for(int j=0;j<myurls.size();j++)
+		{
+			driver.get(myurls.get(j));
+			String title = driver.getTitle();
+			System.out.println("My Title : "+ title);
+		}
+		
 	}
 	
 	@Test
@@ -150,17 +170,13 @@ public class GmailAutomation
 		launchApplication();
 		System.out.println("User ForGot his Email");
 		//driver.findElement(By.tagName("button")).click(); //Forgot email? Create account
-		List<WebElement> elements = driver.findElements(By.tagName("a"));
-		for(int i=0;i<elements.size();i++)
-		{
-			String txt = elements.get(i).getText();
-			System.out.println("Objects searched :" + txt);
-			if(txt.equals("Privacy"))
-			{
-				elements.get(i).click();
-				break;
-			}
-		}
+		/*
+		 * List<WebElement> elements = driver.findElements(By.tagName("a")); for(int
+		 * i=0;i<elements.size();i++) { String txt = elements.get(i).getText();
+		 * System.out.println("Objects searched :" + txt); if(txt.equals("Privacy")) {
+		 * elements.get(i).click(); break; } }
+		 */
+		driver.findElement(By.linkText("Privacy")).click();
 	}
 	@Test
 	public void terms()
