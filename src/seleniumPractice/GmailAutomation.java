@@ -33,6 +33,7 @@ public class GmailAutomation
 	//org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#abcdefgh"}
 	
 	//org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
+	//Locators / Selectors : ID , NAME , CLASSNAME , LINKTEXT , PARTIALLINKTEXT , TAGNAME , Xpath,cssSelector
 	@Test
 	public void launchApplication() //Test1
 	{
@@ -52,7 +53,8 @@ public class GmailAutomation
 	public void loginToApplication() //Test2
 	{
 		launchApplication();
-		WebElement emailObj = driver.findElement(By.id("identifierId"));
+		//WebElement emailObj = driver.findElement(By.id("identifierId"));
+		WebElement emailObj = driver.findElement(By.xpath("//input[@name='identifier' or @id='identifierId']"));
 		emailObj.click();
 		emailObj.sendKeys("dsfdsgfgfghgfhgg");
 		emailObj.clear();
@@ -72,22 +74,54 @@ public class GmailAutomation
 		}
 	}
 	//Execution Sequence : Constructor  -> Launch -> ForGotEmail
+	
+	//Static / fixed / Absolute : /html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[3]/button
+	//Relative Xpath is like SQL Select query : select Salary from Employees where Name='Ram';
+	
+    //tagName[@attribute='value']
+	//tagName[text()='value']
+	//tagName[@att1='value' and @att2='value']
+	//tagName[@att1='value' and text()='value']
+	//tagName[@att1='value' or @att2='value']
+	//tagName[@att1='value' or text()='value']
+	
+	//tagName[contains(@attribute,'value')]
+	//tagName[contains(text(),'value')]
+	//tagName[contains(@att1,'value') and @att2='value']
+	//tagName[@att1='value' and contains(text(),'value')]
+	//tagName[contains(@att1,'value') or @att2='value']
+	//tagName[@att1='value' or contains(text(),'value')]
+	
+	//*[@attribute='value']
+	//*[text()='value']
+	//*[@att1='value' and @att2='value']
+	//*[@att1='value' and text()='value']
+	//*[@att1='value' or @att2='value']
+	//*[@att1='value' or text()='value']
+	
+	//*[contains(@attribute,'value')]
+	//*[contains(text(),'value')]
+	//*[contains(@att1,'value') and @att2='value']
+	//*[@att1='value' and contains(text(),'value')]
+	//*[contains(@att1,'value') or @att2='value']
+	//*[@att1='value' or contains(text(),'value')]
+	
 	@Test
 	public void forgotMyEmail()
 	{
 		launchApplication();
 		System.out.println("User ForGot his Email");
 		//driver.findElement(By.tagName("button")).click(); //Forgot email? Create account
-		List<WebElement> elements = driver.findElements(By.tagName("button"));
-		for(int i=0;i<elements.size();i++)
-		{
-			String txt = elements.get(i).getText();
-			if(txt.equals("Forgot email?"))
-			{
-				elements.get(i).click();
-				break;
-			}
-		}
+		/*
+		 * List<WebElement> elements = driver.findElements(By.tagName("button"));
+		 * for(int i=0;i<elements.size();i++) { String txt = elements.get(i).getText();
+		 * if(txt.equals("Forgot email?")) { elements.get(i).click(); break; } }
+		 */
+		//driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[3]/button")).click();
+	    //driver.findElement(By.xpath("//button[@jsname='Cuz2Ue']")).click();
+	    //driver.findElement(By.xpath("//button[text()='Forgot email?']")).click();
+		//driver.findElement(By.xpath("//button[@type='button' and @jsname='Cuz2Ue' ]")).click();
+		driver.findElement(By.xpath("//button[@type='button' and text()='Forgot email?' ]")).click();
 	}
 	
 	@Test
@@ -152,17 +186,13 @@ public class GmailAutomation
 		launchApplication();
 		System.out.println("User ForGot his Email");
 		//driver.findElement(By.tagName("button")).click(); //Forgot email? Create account
-		List<WebElement> elements = driver.findElements(By.tagName("a"));
-		for(int i=0;i<elements.size();i++)
-		{
-			String txt = elements.get(i).getText();
-			System.out.println("Objects searched :" + txt);
-			if(txt.equals("Help"))
-			{
-				elements.get(i).click();
-				break;
-			}
-		}
+		/*
+		 * List<WebElement> elements = driver.findElements(By.tagName("a")); for(int
+		 * i=0;i<elements.size();i++) { String txt = elements.get(i).getText();
+		 * System.out.println("Objects searched :" + txt); if(txt.equals("Help")) {
+		 * elements.get(i).click(); break; } }
+		 */
+		driver.findElement(By.xpath("//a[text()='Help']")).click();
 	}
 	@Test
 	public void privacy()
